@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+    <title>product display</title>
+    <style type='text/css'>
+        .root{
+          display: flex;
+          justify-content: center;
+          align-items:center;
+        
+        }
+        .subdiv{
+             width: 900px;
+             height: auto;
+             padding: 20px;
+             background:#bdc3c7;
+             margin-top: 30px;
+        }
+        .a1{
+            margin-left: 55%;
+        }
+        </style>    
+</head>
+<body>
+    <div class="root">   
+        <div class='subdiv'>
+         <a href='/seller/sellerview'>Add New Seller</a> 
+         <a class="a1" href='/product/displayall'>DIsplay All Products List</a> 
+         <h4>List of All Sellers</h4>
+
+       <table class='table'>               
+            <thead><tr>
+              <th scope='col'>Sn</th>
+              <th scope='col'>Seller Name</th>
+              <th scope='col'>Seller Image</th>
+              <th scope='col'>Gender</th>
+              <th scope='col'>Mobile/<br>Address</th>
+              <th scope='col'>State/<br>City</th>
+              <th scope='col'>Company Name</th>
+              <th scope='col'>Company Logo</th>  
+            </tr></thead>
+            <tbody>
+                <% Data.map(function(item,index){ %>
+                    <tr>
+                        <th><%=(index+1) %></th>
+                        <td><%=item.name %></td>
+                        <td><img src="/images/<%=item.image %>" width="70" height="70"></td>                        
+                        <td><%=item.gender %></td>
+                        <td><%=item.mobile %>/<br><%=item.address %></td>
+                        <td><%=item.statename %>/<br><%=item.cityname %></td>
+                        <td><%=item.company_name %></td>
+                        <td><img src="/images/<%=item.logo %>" width="70" height="70"></td>
+                        <td><a href="/seller/displaybyid?sid=<%=item.seller_id %>">Edit/Delete</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </tbody>
+    </table>
+    </div>
+    </div>
+       
+    
+</body>
+</html>

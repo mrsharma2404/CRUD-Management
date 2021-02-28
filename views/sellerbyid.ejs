@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+    <script src='/javascripts/state.js'></script>
+    <title>Seller By id</title>
+    <style type='text/css'>
+        .aa{
+            margin-left: 5%; width: 250px; margin-bottom: 20px; box-sizing: border-box;
+            padding: 12px 20px; display: inline-block; border: 1px solid #ccc; border-radius: 4px;   
+            }
+        .d1{
+            margin-left: 5%; display: flex; float: left;
+            width: 500px; 
+        }
+        .bb{
+            margin-left: 10%; width: 150px; margin-bottom: 5px; padding: 6px 20px; display: inline-block; 
+            border: 1px solid green; border-radius: 1px; box-sizing: border-box; background-color: lightgreen;
+            }
+        .h1{
+            margin-left: 5%; font: 26px arial black;
+        }
+        .h2{
+            margin-left: 40%; 
+        }
+        .ss{
+            display: inline-block; width: 200px; background-color: honeydew;
+        }
+        .d2{
+            padding-top: 10px; padding-left: 70px; float: left;
+        }
+        #bb1{
+            background-color: red; color: silver; border: tomato 2px solid;
+        }
+        </style>    
+</head>
+<body>
+    <div class="d1">
+    <form action="/seller/editdelete"> 
+        <br><br><span class="h1">Add Seller</span>
+        <a class="h2" href='/seller/displayall'>Display all Seller</a> <br> <br>
+        <input type="hidden" value="<%= Data[0].seller_id %>" name="sid1">
+        
+                    
+        <span class="ss"> Name</span> <input type="text" name="sname" class="aa" value="<%= Data[0].name %>" placeholder="Seller Name">
+    
+        <span class="ss">Gender</span> <input type="text" name="sgender"  class="aa" value="<%= Data[0].gender %>" placeholder="Gender"><br>
+
+        <span class="ss">Address</span> <input type="text" name="sadd"  class="aa" value="<%= Data[0].address %>" placeholder="Address">
+    
+        <span class="ss">State</span> <select class="aa" name="state" id="state"><option><%= Data[0].statename %></option></select><br>
+                                                       
+        <span class="ss">City</span> <select class="aa" name="city" id="city"><option><%= Data[0].cityname %></option></select><br>
+      
+    
+        <span class="ss">Mobile No.</span> <input type="text" name="smob"  class="aa" value="<%= Data[0].mobile %>" placeholder="Mobile No."><br>
+        
+        <span class="ss">Company Name</span> <input type="text" name="cname"  class="aa" value="<%= Data[0].company_name %>" placeholder="Company Name">   <br>
+    
+        <input type="submit" name="btn" value="edit" class="bb">
+        <input type="submit" name="btn" value="delete" class="bb" id="bb1"><br><br>
+    </form>
+   
+        
+    </div>   
+        
+    
+        <form action="/seller/editpic1" enctype="multipart/form-data" method="POST">
+            <div class="d2">
+            <span class="ss">Seller Image </span> <br> <br>
+            <img class="aa" src="/images/<%=Data[0].image %>" width="140px" height="140px"><br><br>
+            <input class="aa" type="file" name="simage"><br><br>
+            <input type="hidden" value="<%=Data[0].seller_id %>" name="ssellerid">
+            <input class="bb" type="submit" value="edit pic"><br><br><br>
+            </div>
+        </form>
+        <form action="/seller/editpic2" enctype="multipart/form-data" method="POST">
+            <div class="d2">
+            <span class="ss"> Logo </span> <br><br>
+            <img class="aa" src="/images/<%=Data[0].logo %>" width="140px" height="140px"><br><br>
+            <input type="hidden" value="<%=Data[0].seller_id %>" name="ssellerid">
+            <input class="aa" type="file" name="clogo"><br><br>         
+            <input class="bb" type="submit" value="edit pic"><br>
+            </div>
+        </form>
+    </div>
+   
+       
+        
+   
+</body>
+</html>

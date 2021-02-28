@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+    <script src='/javascripts/state.js'></script>
+    <style type='text/css'>
+        .aa{
+            margin-left: 5%; width: 250px; margin-bottom: 20px; box-sizing: border-box;
+            padding: 12px 20px; display: inline-block; border: 1px solid #ccc; border-radius: 4px;   
+            }
+        .d1{
+            
+            width: 650px; height: 600px; 
+        }
+        .bb{
+            margin-left: 10%; width: 150px; margin-bottom: 5px; padding: 6px 20px; display: inline-block; 
+            border: 1px solid green; border-radius: 1px; box-sizing: border-box; background-color: lightgreen;
+            }
+        .h1{
+            margin-left: 5%; font: 14px arial black;
+        }
+        .h2{
+            margin-left: 40%; 
+        }
+        .sd1{
+            margin-left: 5%; 
+        }
+        .sd11{
+            margin-left: 5%; 
+            
+        }
+        .sd2{
+             float: left; margin-left: 4%; margin-top: 20px;
+        }
+        </style>    
+    <title>Seller</title>
+</head>
+<body>
+    <div class="d1">
+        <b><a href="/seller/displayall">Show all Seller</a></b>
+        <h1>Add New Seller </h1><br><br>
+    <form action="/seller/submitrecord1" method="POST" enctype="multipart/form-data">
+       
+        
+            
+                <input class="aa" type="text" name="sname" placeholder="Seller Name ">
+                <span class="sd11">
+                
+                Gender : <input type="radio" name="sgender" value="female">Female
+                <input type="radio" name="sgender" value="male">Male<br>
+                </span>
+            
+                <input class="aa" type="text" name="sadd" placeholder="Address ">
+
+                <input class="aa" type="text" name="smob" placeholder="Mobile No."><br>
+                <select class="aa" name="state" id="state">
+                    <option>--Select State--</option>
+                </select>
+           
+                
+                <select class="aa" name="city" id="city">
+                    <option>--Select City--</option>
+                </select><br>
+           
+                
+                <div class="sd2">
+                <input class="aa" type="text" name="cname" placeholder="Company Name ">         
+                </div>
+                <div class="sd1">
+                <b class="h1">Company Logo : </b><br>
+                <input class="aa" type="file" name="clogo"><br>
+                </div>
+            
+            
+                <b class="h1">Seller Image : </b><br>
+                <input class="aa" type="file" name="simage"><br>
+            
+            
+      
+        <input class="bb" type="submit" value="submit">
+    </form>
+    
+        <b><%= msg %></b>
+        
+    </div>
+</body>
+</html>

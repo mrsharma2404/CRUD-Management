@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Product</title>
+    <style type='text/css'>
+        .aa{
+            margin-left: 5%; width: 250px; margin-bottom: 20px; box-sizing: border-box;
+            padding: 12px 20px; display: inline-block; border: 1px solid #ccc; border-radius: 4px;   
+            }
+        .d1{
+           
+            width: 650px; height: 400px;
+        }
+        .bb{
+            margin-left: 10%; width: 150px; margin-bottom: 5px; padding: 6px 20px; display: inline-block; 
+            border: 1px solid green; border-radius: 1px; box-sizing: border-box; background-color: lightgreen;
+            }
+        .h1{
+            margin-left: 5%; font: 26px arial black;
+        }
+        .h2{
+            margin-left: 40%; 
+        }
+        </style>    
+</head>
+<body>
+    <form action="/product/submitrecord" method="POST" enctype="multipart/form-data">
+        
+    <div class="d1">
+             
+        <br><br><span class="h1">Add Product</span>
+        <a class="h2" href='/product/displayall'>Display all Product</a> <br> <br>
+        
+        
+                    
+        <input type="text" name="cname" class="aa" placeholder="Company Nmae">
+    
+        <input type="text" name="pname"  class="aa" placeholder="Product Nmae"><br>
+
+        <input type="text" name="crate"  class="aa" placeholder="Rate">
+    
+        <input type="text" name="poffer" class="aa" placeholder="Offer Price"><br>
+               
+        <input type="text" name="pstock" class="aa" placeholder="Stock">
+    
+        <select name="pstatus" class="aa">
+            <option>Comming Soon</option>
+            <option>Available</option>
+            <option>Discontinued</option>
+        </select><br>
+    
+        <input type="text" name="pdes"  class="aa" placeholder="Description">
+    
+        <input type="file" name="pimage"  class="aa" ><br>
+    
+        <input type="submit" value="submit" class="bb"><br><br><br>
+        <b><%= msg %></b>
+    </div>   
+        
+        
+    </form>
+   
+     
+        
+  
+</body>
+</html>

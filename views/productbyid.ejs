@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Product By id</title>
+    <style type='text/css'>
+        .aa{
+            margin-left: 5%; width: 250px; margin-bottom: 20px; box-sizing: border-box;
+            padding: 12px 20px; display: inline-block; border: 1px solid #ccc; border-radius: 4px;   
+            }
+        .d1{
+            margin-left: 1%; margin-top: 20px; display: flex; float: left;
+            padding-left: 50px; float: left; width: 570px;
+        }
+        .bb{
+            margin-left: 10%; width: 150px; margin-bottom: 5px; padding: 6px 20px; display: inline-block; 
+            border: 1px solid green; border-radius: 1px; box-sizing: border-box; background-color: lightgreen;
+            }
+        .h1{
+            margin-left: 5%; font: 26px arial black;
+        }
+        .h2{
+            margin-left: 20%; 
+        }
+        .ss{
+            display: inline-block; width: 200px; background-color: honeydew;
+        }
+        .d2{
+            padding-top: 100px; 
+        }
+        #bb1{
+            background-color: red; color: silver; border: tomato 2px solid;
+        }
+        </style>    
+</head>
+<body>
+    <div class="d1">
+    <form action="/product/editdelete"> 
+        <br><br><span class="h1">Edit/Delete Product</span>
+        <a class="h2" href='/product/displayall'>Display all Product</a> <br> <br>
+        <input type="hidden" value="<%= Data[0].product_id %>" name="pid1">
+        
+                    
+        <span class="ss">Company Name : </span> <input type="text" name="cname" class="aa" value="<%= Data[0].company_name %>" placeholder="Company Nmae">
+    
+        <span class="ss">Product Name : </span> <input type="text" name="pname"  class="aa" value="<%= Data[0].product_name %>" placeholder="Product Nmae"><br>
+
+        <span class="ss">MRP : </span> <input type="text" name="crate"  class="aa" value="<%= Data[0].MRP %>" placeholder="Rate">
+    
+        <span class="ss">Offer Price : </span> <input type="text" name="poffer" class="aa" value="<%= Data[0].offer_price %>" placeholder="Offer Price"><br>
+               
+        <span class="ss">Stock : </span> <input type="text" name="pstock" class="aa" value="<%= Data[0].stock %>" placeholder="Stock">
+    
+        <span class="ss">Status : </span> <select name="pstatus" class="aa">
+            <option><%= Data[0].status %></option>
+            <option>Comming Soon</option>
+            <option>Available</option>
+            <option>Discontinued</option>
+        </select><br>
+    
+        <span class="ss">Description : </span> <input type="text" name="pdes"  class="aa" value="<%= Data[0].description %>" placeholder="Description">
+    
+    
+        <input type="submit" name="btn" value="edit" class="bb">
+        <input type="submit" name="btn" value="delete" class="bb" id="bb1"><br><br><br><br>
+    </form>
+</div>   
+        <div class="d2">
+            <form action="/product/editpic" enctype="multipart/form-data" method="POST">
+                <img class="aa" src="/images/<%=Data[0].image %>" width="250px" height="250px"><br><br>
+                <input type="hidden" value="<%=Data[0].product_id %>" name="pproductid">
+                <input class="aa" type="file" name="pimage"><br><br>
+                <input class="bb" type="submit" value="edit pic"><br><br><br><br>
+            </form>
+        </div>
+   
+        
+        
+   
+       
+        
+   
+</body>
+</html>
